@@ -1,7 +1,10 @@
 .header {
 	position: fixed;
-	background-color: coral;
+	background-color: #483D8B;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	width: 100%;
-	text-align: center;
+	text-align: left;
+	color: white;
 	font-family: "Courier New", Courier, monospace;
+	padding-left: 10px;
 }
