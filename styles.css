@@ -1,11 +1,14 @@
-div {
-	position: fixed;
+.top-bar {
 	background-color: #483D8B;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	width: 100%;
 	text-align: left;
 	color: white;
-	padding-left: 10px;
+	padding: 5px;
+}
+
+.controls {
+
 }
 
 h1 {
