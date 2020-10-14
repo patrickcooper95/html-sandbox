@@ -7,26 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
 
 
   <!-- Add additional CSS in static file -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="sandbox2.svg">
 </head>
 
 <body>
-<div class="header">
-  <h1>Sandbox</h1>
-</div>
-<canvas id="myCanvas" width="1000" height="1000"
-style="border:1px solid #c3c3c3;">
-Your browser does not support the canvas element.
-</canvas>
+  <script src="shoot.js"></script>
+  <div class="top-bar">
+    <h1>
+      <img src="sandbox2.svg" height="50px"></img> sandBox
+    </h1>
+  </div>
+  <div class="controls">
+    <button onclick="newShot()">Shoot</button>
+  </div>
+  <canvas id="myCanvas" width="1000" height="1000"
+  style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+    <script src="boxFunction.js"></script>
+  </canvas>
 
-  <script>
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#ff7f50";
-    ctx.fillRect(500, 500, 150, 75);
-  </script>
+
+
 </body>
 </html>
