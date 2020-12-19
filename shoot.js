@@ -26,6 +26,18 @@ async function shoot() {
     ctx.fillStyle = "black";
     ctx.fillRect(xPosition, yPosition, 5, 15);
 
+    let alienLocation = listOfAliens[0].location;
+    console.log(xPosition);
+    if (yPosition > alienLocation[0][1] && yPosition < alienLocation[1][1]) {
+        console.log("HIT!");
+    }
+    // if (yPosition > alienLocation[0][1] &&
+    //     yPosition < alienLocation[1][1] &&
+    //     xPosition > alienLocation[0][0] &&
+    //     xPosition < alienLocation[1][0]) {
+    //       console.log("HIT!");
+    //     }
+
     yPosition -= 5;
     count += 1;
 
