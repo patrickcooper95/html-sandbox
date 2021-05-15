@@ -10,7 +10,7 @@ async function shoot() {
   var limit = 150;
   var count = 0;
 
-	while (count < 120) {
+	while (count < 120 && keepGoing) {
 
 		ctx.fillStyle = "#32CD32";
 
@@ -20,23 +20,22 @@ async function shoot() {
     delay = 20;
     await new Promise(resolve => setTimeout(resolve, delay));
 
-    console.log("Shot moving...");
+    //console.log("Shot moving...");
 
     // erase the laser
     ctx.fillStyle = "black";
     ctx.fillRect(xPosition, yPosition, 5, 15);
 
     let alienLocation = listOfAliens[0].location;
-    console.log(xPosition);
-    if (yPosition > alienLocation[0][1] && yPosition < alienLocation[1][1]) {
-        console.log("HIT!");
-    }
-    // if (yPosition > alienLocation[0][1] &&
-    //     yPosition < alienLocation[1][1] &&
-    //     xPosition > alienLocation[0][0] &&
-    //     xPosition < alienLocation[1][0]) {
-    //       console.log("HIT!");
-    //     }
+
+    if (yPosition > alienLocation[0][1] &&
+        yPosition < alienLocation[1][1] &&
+        xPosition > alienLocation[0][0] &&
+        xPosition < alienLocation[1][0]) {
+          console.log("HIT!");
+          listOfAliens[0].killAlien();
+          keepGoing = false;
+        }
 
     yPosition -= 5;
     count += 1;

@@ -7,7 +7,7 @@ function sleep(ms) {
 
 async function aliens(lifeForm) {
 
-  var moveTimes = 10;
+  var moveTimes = 12;
   var i = 0;
   var antennaX = lifeForm.antennaX;
   var antennaY = lifeForm.antennaY;
@@ -93,23 +93,11 @@ ctx.clearRect(470, 750, 1, 250);
 ctx.clearRect(530, 750, 1, 250);
 
 alien = new Alien(ctx, 20, 150);
-alien2 = new Alien(ctx, 160, 100);
-listOfAliens.push(alien, alien2);
+//alien2 = new Alien(ctx, 160, 100);
+listOfAliens.push(alien);
 console.log(alien.location);
 aliens(alien);
-aliens(alien2);
-//aliens(ctx, 20, 100);
-// aliens(ctx, 20, 150);
-// aliens(ctx, 20, 200);
-// aliens(ctx, 20, 250);
-// aliens(ctx, 160, 100);
-// aliens(ctx, 160, 150);
-// aliens(ctx, 160, 200);
-// aliens(ctx, 160, 250);
-// aliens(ctx, 300, 100);
-// aliens(ctx, 300, 150);
-// aliens(ctx, 300, 200);
-// aliens(ctx, 300, 250);
+//aliens(alien2);
 
 
 console.log("The aliens have landed.");

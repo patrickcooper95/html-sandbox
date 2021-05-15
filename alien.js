@@ -23,6 +23,13 @@ class Alien {
     return this.calcLocation();
   }
 
+  // Kill alien
+  killAlien() {
+    this.alive = false;
+    this.antennaX = 0;
+    this.antennaY = 0;
+  }
+
   // Method
   calcLocation() {
     let topLeft = [this.antennaX - 10, antennaY];
@@ -34,29 +41,32 @@ class Alien {
   }
 
   draw(antennaX, antennaY) {
-    this.ctx.fillStyle = "#32CD32";
 
-		// draw rest of alien's body
-    this.ctx.fillRect(antennaX, antennaY, 5, 5);
-    this.ctx.fillRect(antennaX + 5, antennaY + 5, 5, 5);
-    this.ctx.fillRect(antennaX, antennaY + 10, 40, 5);
-    this.ctx.fillRect(antennaX + 35, antennaY, 5, 5);
-    this.ctx.fillRect(antennaX + 30, antennaY + 5, 5, 5);
-    this.ctx.fillRect(antennaX - 5, antennaY + 15, 50, 5);
-    this.ctx.clearRect(antennaX + 5, antennaY + 15, 5, 5);
-    this.ctx.clearRect(antennaX + 30, antennaY + 15, 5, 5);
-    this.ctx.fillRect(antennaX - 10, antennaY + 20, 60, 5);
-    this.ctx.fillRect(antennaX - 10, antennaY + 25, 5, 10);
-    this.ctx.fillRect(antennaX, antennaY + 25, 40, 5);
-    this.ctx.fillRect(antennaX + 45, antennaY + 25, 5, 10);
-    this.ctx.fillRect(antennaX, antennaY + 30, 5, 5);
-    this.ctx.fillRect(antennaX + 35, antennaY + 30, 5, 5);
-    this.ctx.fillRect(antennaX + 5, antennaY + 35, 10, 5);
-    this.ctx.fillRect(antennaX + 25, antennaY + 35, 10, 5);
+    if (this.alive) {
+      this.ctx.fillStyle = "#32CD32";
 
-    // Update alien's position attributes
-    this.antennaX = antennaX;
-    this.antennaY = antennaY;
+  		// draw rest of alien's body
+      this.ctx.fillRect(antennaX, antennaY, 5, 5);
+      this.ctx.fillRect(antennaX + 5, antennaY + 5, 5, 5);
+      this.ctx.fillRect(antennaX, antennaY + 10, 40, 5);
+      this.ctx.fillRect(antennaX + 35, antennaY, 5, 5);
+      this.ctx.fillRect(antennaX + 30, antennaY + 5, 5, 5);
+      this.ctx.fillRect(antennaX - 5, antennaY + 15, 50, 5);
+      this.ctx.clearRect(antennaX + 5, antennaY + 15, 5, 5);
+      this.ctx.clearRect(antennaX + 30, antennaY + 15, 5, 5);
+      this.ctx.fillRect(antennaX - 10, antennaY + 20, 60, 5);
+      this.ctx.fillRect(antennaX - 10, antennaY + 25, 5, 10);
+      this.ctx.fillRect(antennaX, antennaY + 25, 40, 5);
+      this.ctx.fillRect(antennaX + 45, antennaY + 25, 5, 10);
+      this.ctx.fillRect(antennaX, antennaY + 30, 5, 5);
+      this.ctx.fillRect(antennaX + 35, antennaY + 30, 5, 5);
+      this.ctx.fillRect(antennaX + 5, antennaY + 35, 10, 5);
+      this.ctx.fillRect(antennaX + 25, antennaY + 35, 10, 5);
+
+      // Update alien's position attributes
+      this.antennaX = antennaX;
+      this.antennaY = antennaY;
+    }
   }
 
   erase(antennaX, antennaY) {
