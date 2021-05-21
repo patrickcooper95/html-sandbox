@@ -1,13 +1,23 @@
 
 var listOfAliens = [];
+var direction = "right";
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function flip() {
+  if (direction == "right") {
+    direction = "left";
+  }
+  else {
+    direction = "right";
+  }
+}
+
 async function aliens(lifeForm) {
 
-  var moveTimes = 12;
+  var moveTimes = width / 100;
   var i = 0;
   var antennaX = lifeForm.antennaX;
   var antennaY = lifeForm.antennaY;
@@ -24,8 +34,19 @@ async function aliens(lifeForm) {
 
     lifeForm.erase(antennaX, antennaY);
 
-		// prepare his next move
-		antennaX += 65;
+    if (direction == "right") {
+  		// prepare his next move
+  		antennaX += 65;
+    }
+    else {
+      antennaX -= 65;
+    }
+
+    // Flip direction and start movement again
+    if (i == (moveTimes - 1)) {
+      i = 0;
+      flip();
+    }
 	}
   console.log("Alien done moving.");
 }
@@ -92,6 +113,7 @@ ctx.fillRect(450, 925, 100, 75);
 ctx.clearRect(470, 750, 1, 250);
 ctx.clearRect(530, 750, 1, 250);
 
+// TODO: We'll need to pass an array of alien objects to the aliens function
 alien = new Alien(ctx, 20, 150);
 //alien2 = new Alien(ctx, 160, 100);
 listOfAliens.push(alien);

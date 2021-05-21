@@ -35,6 +35,7 @@ async function shoot() {
           console.log("HIT!");
           listOfAliens[0].killAlien();
           keepGoing = false;
+          game.hit();
         }
 
     yPosition -= 5;
@@ -46,4 +47,6 @@ async function shoot() {
 
 function newShot() {
   shoot()
+  game.incrementShot();
+  console.log(game.getShotsFired);
 }
