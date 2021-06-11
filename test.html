@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sandbox</title>
+  <title>Space Invaders</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel='stylesheet'>
 
 
   <!-- Add additional CSS in static file -->
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="sandbox2.svg">
+  <link rel="icon" href="media/space_invader.png">
 </head>
 
 <body>
@@ -20,15 +21,13 @@
   <script src="alien.js"></script>
   <script src="shoot.js"></script>
   <div class="top-bar">
-    <h1>
-      <img src="sandbox2.svg" height="50px"></img> sandBox
-    </h1>
+    <h1>SPACE INVADERS</h1>
   </div>
   <div class="controls">
     <button onclick="newShot()">Shoot</button>
   </div>
-  <canvas id="myCanvas" width="1000" height="1000"
-  style="border:1px solid #c3c3c3;">
+  <canvas id="myCanvas" width="1000" height="500"
+  style="border:1px solid #c3c3c3;" class="game">
     Your browser does not support the canvas element.
     <script src="main.js"></script>
   </canvas>

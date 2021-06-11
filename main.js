@@ -1,11 +1,12 @@
 
-var listOfAliens = [];
+// Set initial direction of alien movement
 var direction = "right";
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// Flip alien movement direction
 function flip() {
   if (direction == "right") {
     direction = "left";
@@ -15,31 +16,32 @@ function flip() {
   }
 }
 
-async function aliens(lifeForm) {
+async function aliens(army) {
 
-  var moveTimes = width / 100;
-  var i = 0;
-  var antennaX = lifeForm.antennaX;
-  var antennaY = lifeForm.antennaY;
+  var moveTimes = Math.floor(width / 100);
+  console.log(moveTimes);
 
-	for (i = 0; i < moveTimes; i++) {
-    console.log(i);
-    console.log(moveTimes);
-
-    lifeForm.draw(antennaX, antennaY);
-
-		console.log(antennaX + ", " + antennaY);
+	for (let i = 0; i < moveTimes; i++) {
+    for (let i = 0; i < army.length; i++) {
+      army[i].draw(army[i].antennaX, army[i].antennaY);
+    }
 
 		await new Promise(resolve => setTimeout(resolve, 1000));
 
-    lifeForm.erase(antennaX, antennaY);
+    for (let i = 0; i < army.length; i++) {
+      army[i].erase(army[i].antennaX, army[i].antennaY);
+    }
 
     if (direction == "right") {
   		// prepare his next move
-  		antennaX += 65;
+      for (let i = 0; i < army.length; i++) {
+        army[i].antennaX += 65;
+      }
     }
     else {
-      antennaX -= 65;
+      for (let i = 0; i < army.length; i++) {
+        army[i].antennaX -= 65;
+      }
     }
 
     // Flip direction and start movement again
@@ -101,7 +103,6 @@ ctx.fillRect(650, 740, 70, 260);
 //One WTC
 ctx.fillRect(923, 670, 4, 30);
 
-
 // Empire State Building
 ctx.fillStyle = "#32CD32";
 ctx.fillRect(460, 750, 80, 250);
@@ -113,13 +114,12 @@ ctx.fillRect(450, 925, 100, 75);
 ctx.clearRect(470, 750, 1, 250);
 ctx.clearRect(530, 750, 1, 250);
 
-// TODO: We'll need to pass an array of alien objects to the aliens function
 alien = new Alien(ctx, 20, 150);
-//alien2 = new Alien(ctx, 160, 100);
-listOfAliens.push(alien);
-console.log(alien.location);
-aliens(alien);
-//aliens(alien2);
+alien2 = new Alien(ctx, 20, 100);
 
+let alienArray = [alien, alien2];
+console.log(alien.location);
+
+aliens(alienArray);
 
 console.log("The aliens have landed.");

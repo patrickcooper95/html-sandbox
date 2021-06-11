@@ -1,16 +1,27 @@
 .top-bar {
-	background-color: #483D8B;
+	background-color: #000000;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	width: 100%;
-	text-align: left;
-	color: white;
-	padding: 5px;
+	text-align: center;
+	color: #32cd32;
+}
+
+body {
+	background-color: #000000;
 }
 
 .controls {
 
 }
 
+.game {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	display: block;
+}
+
 h1 {
-	font-family: AbeeZee;
+	font-family: 'Do Hyeon';
+	font-size: 60px;
 }
