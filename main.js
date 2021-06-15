@@ -26,7 +26,7 @@ async function aliens(army) {
       army[i].draw(army[i].antennaX, army[i].antennaY);
     }
 
-		await new Promise(resolve => setTimeout(resolve, 1000));
+		await new Promise(resolve => setTimeout(resolve, 750));
 
     for (let i = 0; i < army.length; i++) {
       army[i].erase(army[i].antennaX, army[i].antennaY);
@@ -116,9 +116,13 @@ ctx.clearRect(530, 750, 1, 250);
 
 alien = new Alien(ctx, 20, 150);
 alien2 = new Alien(ctx, 20, 100);
+alien3 = new Alien(ctx, 100, 150);
+alien4 = new Alien(ctx, 100, 100);
+alien5 = new Alien(ctx, 20, 50);
+alien6 = new Alien(ctx, 100, 50);
 
-let alienArray = [alien, alien2];
-console.log(alien.location);
+let alienArray = [alien, alien2, alien3, alien4, alien5, alien6];
+//console.log(alien.location);
 
 aliens(alienArray);
 

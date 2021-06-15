@@ -5,8 +5,8 @@ async function shoot() {
   var ctx = canvas.getContext("2d");
 
   var keepGoing = true;
-  var xPosition = 497;
-  var yPosition = 625;
+  var yPosition = canvas.height - 10;
+  var xPosition = (canvas.width / 2);
   var limit = 150;
   var count = 0;
 
@@ -26,17 +26,19 @@ async function shoot() {
     ctx.fillStyle = "black";
     ctx.fillRect(xPosition, yPosition, 5, 15);
 
-    let alienLocation = listOfAliens[0].location;
+    for (let alien = 0; alien < alienArray.length; alien++) {
+      let alienLocation = alienArray[alien].location;
+      if (yPosition > alienLocation[0][1] &&
+          yPosition < alienLocation[1][1] &&
+          xPosition > alienLocation[0][0] &&
+          xPosition < alienLocation[1][0]) {
+            console.log("HIT!");
+            alienArray[alien].killAlien();
+            keepGoing = false;
+            game.hit();
+          }
+    }
 
-    if (yPosition > alienLocation[0][1] &&
-        yPosition < alienLocation[1][1] &&
-        xPosition > alienLocation[0][0] &&
-        xPosition < alienLocation[1][0]) {
-          console.log("HIT!");
-          listOfAliens[0].killAlien();
-          keepGoing = false;
-          game.hit();
-        }
 
     yPosition -= 5;
     count += 1;

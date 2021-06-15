@@ -26,6 +26,7 @@ class Alien {
   // Kill alien
   killAlien() {
     this.alive = false;
+    this.erase(this.antennaX, this.antennaY);
     this.antennaX = 0;
     this.antennaY = 0;
   }
