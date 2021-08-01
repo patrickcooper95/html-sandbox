@@ -16,10 +16,10 @@ function flip() {
   }
 }
 
-async function aliens(army, startPosition, numOfRows) {
+async function aliens(army, startPosition) {
 
-  var armyWidth = (army.length/numOfRows) * 80 + startPosition;
-  var moveTimes = (width - armyWidth)/moveRate;
+  var armyWidth = startPosition;
+  var moveTimes = Math.floor(((width - armyWidth)/moveRate));
   console.log(moveTimes);
 
 	for (let i = 0; i < moveTimes; i++) {
@@ -103,6 +103,7 @@ ctx.fillRect(650, height-120, 70, 120);
 ctx.fillRect(970, height-97, 30, 97);
 ctx.fillRect(200, height-122, 25, 122);
 ctx.fillRect(180, height-157, 30, 157);
+ctx.fillRect(830, height-75, 75, 75);
 
 
 // One WTC
@@ -116,7 +117,7 @@ ctx.fillRect(480, height-160, 40, 160);
 ctx.fillRect(492, height-185, 15, 185);
 ctx.fillRect(497, height-210, 5, 210);
 ctx.fillRect(450, height-30, 100, 30);
-ctx.clearRect(470, height-125, 1, 125);
+ctx.clearRect(469, height-125, 1, 125);
 ctx.clearRect(530, height-125, 1, 125);
 
 
@@ -135,6 +136,6 @@ for (let col = 0; col < numCols; col++) {
   initCol += 80;
 }
 
-aliens(alienArray, initCol, numRows);
+aliens(alienArray, initCol);
 
 console.log("The aliens have landed.");

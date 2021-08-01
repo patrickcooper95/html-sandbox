@@ -1,6 +1,5 @@
 .top-bar {
 	background-color: #000000;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	width: 100%;
 	text-align: center;
 	color: #32cd32;
@@ -8,10 +7,22 @@
 
 body {
 	background-color: #000000;
+	font-family: 'Do Hyeon';
 }
 
 .controls {
+	margin: auto;
+  width: 50%;
+}
 
+.fire-button {
+	border-color: #32CD32;
+	border-radius: 5px;
+	border-style: solid;
+	margin: auto;
+	width: 50%;
+	background-color: #000000;
+	color: #32CD32;
 }
 
 .game {
@@ -24,4 +35,6 @@ body {
 h1 {
 	font-family: 'Do Hyeon';
 	font-size: 60px;
+	padding:0;
+  margin:0;
 }
