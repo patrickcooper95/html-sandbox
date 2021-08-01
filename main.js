@@ -16,9 +16,10 @@ function flip() {
   }
 }
 
-async function aliens(army) {
+async function aliens(army, startPosition, numOfRows) {
 
-  var moveTimes = Math.floor(width / 100);
+  var armyWidth = (army.length/numOfRows) * 80 + startPosition;
+  var moveTimes = (width - armyWidth)/moveRate;
   console.log(moveTimes);
 
 	for (let i = 0; i < moveTimes; i++) {
@@ -35,12 +36,12 @@ async function aliens(army) {
     if (direction == "right") {
   		// prepare his next move
       for (let i = 0; i < army.length; i++) {
-        army[i].antennaX += 65;
+        army[i].antennaX += 30;
       }
     }
     else {
       for (let i = 0; i < army.length; i++) {
-        army[i].antennaX -= 65;
+        army[i].antennaX -= 30;
       }
     }
 
@@ -82,48 +83,58 @@ var antennaY = 100;
 
 //background buildings
 ctx.fillStyle = "#006400";
-ctx.fillRect(500, 950, 100, 50);
-ctx.fillRect(200, 900, 100, 100);
-ctx.fillRect(250, 850, 50, 150);
-ctx.fillRect(0, 800, 100, 200);
-ctx.fillRect(300, 700, 30, 300);
-ctx.fillRect(100, 975, 100, 25);
-ctx.fillRect(150, 770, 30, 230);
-ctx.fillRect(900, 700, 50, 300);
-ctx.fillRect(800, 730, 40, 270);
-ctx.fillRect(800, 900, 100, 100);
-ctx.fillRect(900, 950, 100, 50);
-ctx.fillRect(370, 960, 80, 40);
-ctx.fillRect(320, 930, 50, 70);
-ctx.fillRect(360, 770, 50, 230);
-ctx.fillRect(500, 910, 300, 90);
-ctx.fillRect(600, 790, 35, 210);
-ctx.fillRect(650, 740, 70, 260);
+ctx.fillRect(500, height-40, 100, 40);
+ctx.fillRect(200, height-30, 100, 30);
+ctx.fillRect(250, height-100, 50, 100);
+ctx.fillRect(0, height-100, 100, 100);
+ctx.fillRect(300, height-150, 30, 150);
+ctx.fillRect(100, height-20, 75, 20);
+ctx.fillRect(150, height-145, 27, 145);
+ctx.fillRect(900, height-175, 50, 175);
+ctx.fillRect(800, height-76, 40, 76);
+ctx.fillRect(800, height-89, 45, 89);
+ctx.fillRect(900, height-123, 23, 123);
+ctx.fillRect(370, height-131, 80, 131);
+ctx.fillRect(320, height-99, 50, 99);
+ctx.fillRect(360, height-78, 50, 230);
+ctx.fillRect(500, height-20, 300, 90);
+ctx.fillRect(600, height-45, 35, 45);
+ctx.fillRect(650, height-120, 70, 120);
+ctx.fillRect(970, height-97, 30, 97);
+ctx.fillRect(200, height-122, 25, 122);
+ctx.fillRect(180, height-157, 30, 157);
 
-//One WTC
-ctx.fillRect(923, 670, 4, 30);
+
+// One WTC
+ctx.fillRect(923, height-200, 4, 30);
 
 // Empire State Building
 ctx.fillStyle = "#32CD32";
-ctx.fillRect(460, 750, 80, 250);
-ctx.fillRect(470, 710, 60, 40);
-ctx.fillRect(480, 690, 40, 20);
-ctx.fillRect(490, 685, 20, 5);
-ctx.fillRect(497, 640, 5, 45);
-ctx.fillRect(450, 925, 100, 75);
-ctx.clearRect(470, 750, 1, 250);
-ctx.clearRect(530, 750, 1, 250);
+ctx.fillRect(460, height-125, 80, 125);
+ctx.fillRect(470, height-150, 60, 150);
+ctx.fillRect(480, height-160, 40, 160);
+ctx.fillRect(492, height-185, 15, 185);
+ctx.fillRect(497, height-210, 5, 210);
+ctx.fillRect(450, height-30, 100, 30);
+ctx.clearRect(470, height-125, 1, 125);
+ctx.clearRect(530, height-125, 1, 125);
 
-alien = new Alien(ctx, 20, 150);
-alien2 = new Alien(ctx, 20, 100);
-alien3 = new Alien(ctx, 100, 150);
-alien4 = new Alien(ctx, 100, 100);
-alien5 = new Alien(ctx, 20, 50);
-alien6 = new Alien(ctx, 100, 50);
 
-let alienArray = [alien, alien2, alien3, alien4, alien5, alien6];
-//console.log(alien.location);
+// Number of aliens and starting positions
+var alienArray = [];
+var numRows = 3;
+var numCols = 5;
+var initCol = 20;
 
-aliens(alienArray);
+for (let col = 0; col < numCols; col++) {
+  var initRow = 50;
+  for (let row = 0; row < numRows; row++) {
+    alienArray.push(new Alien(ctx, initCol, initRow));
+    initRow += 50;
+  }
+  initCol += 80;
+}
+
+aliens(alienArray, initCol, numRows);
 
 console.log("The aliens have landed.");

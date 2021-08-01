@@ -5,8 +5,8 @@ async function shoot() {
   var ctx = canvas.getContext("2d");
 
   var keepGoing = true;
-  var yPosition = canvas.height - 10;
-  var xPosition = (canvas.width / 2);
+  var yPosition = canvas.height - 225;
+  var xPosition = (canvas.width / 2)-2;
   var limit = 150;
   var count = 0;
 
@@ -15,7 +15,7 @@ async function shoot() {
 		ctx.fillStyle = "#32CD32";
 
 		// draw laser
-    ctx.fillRect(xPosition, yPosition, 5, 15);
+    ctx.fillRect(xPosition, yPosition, 3, 15);
 
     delay = 20;
     await new Promise(resolve => setTimeout(resolve, delay));
@@ -24,7 +24,7 @@ async function shoot() {
 
     // erase the laser
     ctx.fillStyle = "black";
-    ctx.fillRect(xPosition, yPosition, 5, 15);
+    ctx.fillRect(xPosition, yPosition, 3, 15);
 
     for (let alien = 0; alien < alienArray.length; alien++) {
       let alienLocation = alienArray[alien].location;
